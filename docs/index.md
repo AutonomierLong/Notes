@@ -21,3 +21,29 @@ For full documentation visit [mkdocs.org](https://www.mkdocs.org).
 #include <bits/stdc++.h>
 using namespace std;
 ```
+Let's now try to insert an image.
+![example](./images/img01.png)
+
+!!!warning
+    This is a warning box.
+
+
+!!!note
+    This is a note box.
+
+
+!!!question
+    This is a question box.
+
+!!!info "You can also change the title"
+    hhh
+
+???info "Let's try to collapse a box"
+    This is a collapsed box.
+
+???+failure "A collapsed box, but initially expanded"
+    This is a collapsed box.
+
+$$
+\sum_{i=1}^{\infty} \frac{1}{2^i} = 1
+$$
