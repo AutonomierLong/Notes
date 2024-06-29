@@ -1,49 +1,14 @@
-# Welcome to MkDocs
+# Welcome to Autonomier's Notebook!
 
-For full documentation visit [mkdocs.org](https://www.mkdocs.org).
+> 记录一些自己的学习笔记与心得
 
-## Commands
+Contact me with my ZJU email: [3220105831@zju.edu.cn](mailto:3220105831@zju.edu.cn).
 
-* `mkdocs new [dir-name]` - Create a new project.
-* `mkdocs serve` - Start the live-reloading docs server.
-* `mkdocs build` - Build the documentation site.
-* `mkdocs -h` - Print help message and exit.
+!!!info ""
+    钟鼎山林都是梦, 人间宠辱休惊. 只消闲处过平生. 
+    <br>酒杯秋吸露, 诗句夜裁冰.
+    <br>记取小窗风雨夜, 对床灯火多情. 问谁千里伴君行. 
+    <br>晚山眉样翠, 秋水镜般明.
 
-## Project layout
+<img src="images/Reus.jpg" alt="Marco Reus" width="800" height="200" style="display: block; margin: 0 auto;">
 
-    mkdocs.yml    # The configuration file.
-    docs/
-        index.md  # The documentation homepage.
-        ...       # Other markdown pages, images and other files.
-
-## Codes
-```cpp title="trial" linenums="1" hl_lines="1"
-#include <bits/stdc++.h>
-using namespace std;
-```
-Let's now try to insert an image.
-![example](./images/img01.png)
-
-!!!warning
-    This is a warning box.
-
-
-!!!note
-    This is a note box.
-
-
-!!!question
-    This is a question box.
-
-!!!info "You can also change the title"
-    hhh
-
-???info "Let's try to collapse a box"
-    This is a collapsed box.
-
-???+failure "A collapsed box, but initially expanded"
-    This is a collapsed box.
-
-$$
-\sum_{i=1}^{\infty} \frac{1}{2^i} = 1
-$$

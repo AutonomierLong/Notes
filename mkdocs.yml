@@ -5,6 +5,10 @@ nav:
     - CS231n: CS231n.md
 theme:
   logo: img/dragon.png
+  favicon: img/dragon.png
+  font:
+    text: Merriweather
+    code: Fira Code
   name: material
   features:
     - navigation.tabs
@@ -22,7 +26,7 @@ theme:
       toggle:
         icon: material/toggle-switch-off-outline 
         name: Switch to dark mode
-      primary: teal
+      primary: green
       accent: purple 
     - scheme: slate 
       toggle:
@@ -62,6 +66,9 @@ markdown_extensions:
 extra_javascript:
   - https://polyfill.io/v3/polyfill.min.js?features=es6
   - https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js
+
+extra_css:
+  - stylesheets/extra.css
 
 copyright: |
   &copy; 2024 <a href="https://github.com/AutonomierLong"  target="_blank" rel="noopener">Autonomier Long</a>
