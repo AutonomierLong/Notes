@@ -1,4 +1,4 @@
-body, p, h1, h2, h3, h4, h5, h6, blockquote, pre, code, ul, ol, li, table, th, td, caption, input, textarea, button {
+body {
     font-family: "Merriweather", "华文楷体", sans-serif;
 }
 
@@ -7,3 +7,12 @@ body, p, h1, h2, h3, h4, h5, h6, blockquote, pre, code, ul, ol, li, table, th, t
   font-size: x-large;
   text-align: center;
 }
+
+.center {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+
+/* , p, h1, h2, h3, h4, h5, h6, blockquote, pre, code, ul, ol, li, table, th, td, caption, input, textarea, button */

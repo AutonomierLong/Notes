@@ -2,7 +2,19 @@ site_name: Autonomier's Notes
 nav:
   - Home: index.md
   - "Computer Vision":
-    - CS231n: CS231n.md
+    - CS231n: 
+      - Overview: CS231n.md
+      - Introduction: lecture1.md
+      - Image Classification with Linear Classifiers: lecture2.md
+      - Lecture 3: lecture3.md
+      - Lecture 4: lecture4.md
+      - Lecture 5: lecture5.md
+      - Lecture 6: lecture6.md
+      - Lecture 7: lecture7.md
+      - Lecture 8: lecture8.md
+      - Lecture 9: lecture9.md
+      - Lecture 10: lecture10.md
+      - Lecture 11: lecture11.md
 theme:
   logo: img/dragon.png
   favicon: img/dragon.png
@@ -62,6 +74,9 @@ markdown_extensions:
   - pymdownx.emoji:
       emoji_index: !!python/name:materialx.emoji.twemoji
       emoji_generator: !!python/name:materialx.emoji.to_svg
+  - def_list
+  - pymdownx.tasklist:
+      custom_checkbox: true
 
 extra_javascript:
   - https://polyfill.io/v3/polyfill.min.js?features=es6
