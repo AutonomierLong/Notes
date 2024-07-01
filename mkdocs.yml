@@ -6,7 +6,7 @@ nav:
       - Overview: CS231n.md
       - Introduction: lecture1.md
       - Image Classification with Linear Classifiers: lecture2.md
-      - Lecture 3: lecture3.md
+      - Loss Functions and Optimization: lecture3.md
       - Lecture 4: lecture4.md
       - Lecture 5: lecture5.md
       - Lecture 6: lecture6.md
