@@ -73,7 +73,7 @@ $$
 !!!info "Comparison between softmax and SVM"
     ![linear](./images/Lec03/lec03%20(6).png){: width="600px" .center}
     Suppose I take a datapoint and I jiggle a bit (changing its score slightly). What happens to the loss in both cases?
-    <br>对于SVM来讲, 只要正确类的分数比别的类至少大一个$\Delta$的margin, 那么这一项$L_i$就会变为0, 不在对loss产生贡献. 但是对于softmax来讲, $L_i$始终不可能衰减为零. In other words, the Softmax classifier is never fully happy with the scores it produces: the correct class could always have a higher probability and the incorrect classes always a lower probability and the loss would always get better. However, the SVM is happy once the margins are satisfied and it does not micromanage the exact scores beyond this constraint.
+    <br>对于SVM来讲, 只要正确类的分数比别的类至少大一个$\Delta$的margin, 那么这一项$L_i$就会变为0, 不在对loss产生贡献. 但是对于softmax来讲, $L_i$始终不可能衰减为零. <br>In other words, the Softmax classifier is never fully happy with the scores it produces: the correct class could always have a higher probability and the incorrect classes always a lower probability and the loss would always get better. However, the SVM is happy once the margins are satisfied and it does not micromanage the exact scores beyond this constraint.
 
 !!!question 
     Suppose that we found a W such that L = 0. Is this W unique?
@@ -131,7 +131,7 @@ This, however, has a problem of efficiency. The loss is just a function of W, so
 In summary:
 
 + Numerical gradient: approximate, slow, easy to write
-+ Analytic gradient: exact, fast, error-prone
++ Analytic gradient: exact, fast, error-prone(容易出错)
 
 > In practice: Always use analytic gradient, but check implementation with numerical gradient. This is called a gradient check.
 

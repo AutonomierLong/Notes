@@ -7,7 +7,7 @@ nav:
       - Introduction: lecture1.md
       - Image Classification with Linear Classifiers: lecture2.md
       - Loss Functions and Optimization: lecture3.md
-      - Lecture 4: lecture4.md
+      - Backpropagation and Neural Networks: lecture4.md
       - Lecture 5: lecture5.md
       - Lecture 6: lecture6.md
       - Lecture 7: lecture7.md
