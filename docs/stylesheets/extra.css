@@ -2,6 +2,11 @@ body {
     font-family: "Merriweather", "华文楷体", sans-serif;
 }
 
+.md-typeset .admonition,
+.md-typeset details {
+  font-size: large
+}
+
 .md-typeset .admonition:first-of-type,
 .md-typeset details {
   font-size: x-large;

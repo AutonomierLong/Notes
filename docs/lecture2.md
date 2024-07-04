@@ -140,7 +140,7 @@ Futhermore, we can do the Cross-Validation, which is to split data into folds, a
 
 ![fold](./images/Lec02/01%20(6).png){: width="600px" .center}
 
-> Cross-Validation is useful for small datasets, but not used too frequently in deep learning.
+> Cross-Validation is useful for small datasets, but not used too frequently in deep learning. 我们把数据分为N个folds, 然后选择其中一个作为validation set, 其余的作为training set, 然后重复N次, 每次选择不同的fold作为validation set. 这样N次训练中, 每次计算出在validation set上的准确率, 最后N次取平均作为最终的训练效果指标.
 
 Example of 5-fold cross-validation
 for the value of k(Seems that k ~= 7 works best for this data):
