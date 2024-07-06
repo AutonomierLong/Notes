@@ -78,7 +78,7 @@ $$
 
 ## Convolutional Neural Networks Hierarchy
 
-![linear](./images/Lec05/1%20(9).png){: width="600px" .center}
+![linear](./images/Lec05/2.png){: width="600px" .center}
 
 + ConvNets stack CONV, POOL and FC layers.
 + Tredn towards smaller fliters and deeper architectures.
@@ -90,6 +90,9 @@ $$
 $$
 
 where N is usually up to ~5, M is large, $0\le K \le 2$.
+
+!!!example
+    ![linear](./images/Lec05/1%20(9).png){: width="600px" .center}
 
 ## Intuition of Activation Maps
 
