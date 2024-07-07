@@ -148,6 +148,10 @@ X /= np.std(X, axis=0)
 
 但是CV里面一般都是只减去平均即可, 不需要除以标准差, 因为像素值的范围都是比较统一的.
 
+!!!info "Some intuition about why we need to zero-center and normalize the data"
+    ![linear](./images/Lec06/intuition.png){: width="600px" .center}
+    可以看到当数据被zero-center之后, 我们稍微扰动一下这条分类的直线, 分类结果(loss)基本不变, 但是当数据没有被zero-center时, 我们稍微扰动一下这条分类的直线, 分类结果(loss)变化较大.
+
 ## Weight Initialization
 
 ### What happens when $W=0$ initialization is used?
