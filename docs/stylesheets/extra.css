@@ -7,8 +7,7 @@ body {
   font-size: large
 }
 
-.md-typeset .admonition:first-of-type,
-.md-typeset details {
+.poem {
   font-size: x-large;
   text-align: center;
 }
