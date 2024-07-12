@@ -15,7 +15,7 @@ nav:
       - Deep Learning Software: lecture8.md
       - CNN Architecture: lecture9.md
       - Assignment 2: assignment2.md
-      - Lecture 10: lecture10.md
+      - Recurrent Neural Networks: lecture10.md
       - Lecture 11: lecture11.md
 theme:
   logo: img/dragon.png
