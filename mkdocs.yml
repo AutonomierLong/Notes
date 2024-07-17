@@ -16,7 +16,7 @@ nav:
       - CNN Architecture: lecture9.md
       - Assignment 2: assignment2.md
       - Recurrent Neural Networks: lecture10.md
-      - Lecture 11: lecture11.md
+      - Detection and Segmentation: lecture11.md
 theme:
   logo: img/dragon.png
   favicon: img/dragon.png

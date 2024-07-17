@@ -82,7 +82,7 @@ The naive idea is to just froward through the entire sequence to compute the los
 
 !!!info
     ![linear](./images/Lec10/1%20(3).png){: width="600px" .center}
-    我们将CNN提取出的图像特征输入到RNN中, 利用RNN生成$y_0$, 而后在$y_0$中sample出一个word, 作为下一层的输入, 如此迭代训练RNN网络, 指导最后从某个$y_i$中sample的word是$<End>$ token, 我们就结束caption.
+    我们将CNN提取出的图像特征输入到RNN中, 利用RNN生成$y_0$, 而后在$y_0$中sample出一个word, 作为下一层的输入, 如此迭代训练RNN网络, 直到最后从某个$y_i$中sample的word是$<End>$ token, 我们就结束caption.
     另外, 现在的一个recurrent module多了一个图像特征的输入, 所以需要加入一个新的weight matrix $W_{ih}$.
 
 ## Long Short Term Memory(LSTM)
