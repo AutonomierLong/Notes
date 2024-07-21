@@ -17,6 +17,7 @@ nav:
       - Assignment 2: assignment2.md
       - Recurrent Neural Networks: lecture10.md
       - Detection and Segmentation: lecture11.md
+      - Visualizing and Understanding: lecture12.md
 theme:
   logo: img/dragon.png
   favicon: img/dragon.png
