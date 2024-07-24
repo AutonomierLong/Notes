@@ -20,6 +20,7 @@ nav:
       - Visualizing and Understanding: lecture12.md
       - Generative Models: lecture13.md
       - Reinforcement Learning: lecture14.md
+      - Transformer: Transformer.md
 theme:
   logo: img/dragon.png
   favicon: img/dragon.png
