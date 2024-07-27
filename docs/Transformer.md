@@ -10,7 +10,7 @@
 
 One-hot encoding 编码在vocabulary库很大的情况下需要极大的存储空间, 性能较差, 所以我们使用word embedding进行编码.
 
-假设我们的vocabulary总共有$N$个word, 需要把每个word编码成$M$维的向量, 那么我们需要听过某些机器学习的手段学习一个$W$矩阵, 灭一行对应一个word的编码:
+假设我们的vocabulary总共有$N$个word, 需要把每个word编码成$M$维的向量, 那么我们需要通过某些机器学习的手段学习一个$W$矩阵, 每一行对应一个word的编码:
 
 $$
 W = \begin{pmatrix}
