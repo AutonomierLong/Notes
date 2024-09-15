@@ -1,27 +1,32 @@
 site_name: Autonomier's Notes
 nav:
   - Home: index.md
-  - "Computer Vision":
-    - CS231n: 
-      - Overview: CS231n.md
-      - Introduction: lecture1.md
-      - Image Classification with Linear Classifiers: lecture2.md
-      - Loss Functions and Optimization: lecture3.md
-      - Backpropagation and Neural Networks: lecture4.md
-      - Assignment 1: assignment1.md
-      - Convolutional Neural Networks: lecture5.md
-      - Training Neural Networks, Part 1: lecture6.md
-      - Training Neural Networks, Part 2: lecture7.md
-      - Deep Learning Software: lecture8.md
-      - CNN Architecture: lecture9.md
-      - Assignment 2: assignment2.md
-      - Recurrent Neural Networks: lecture10.md
-      - Detection and Segmentation: lecture11.md
-      - Visualizing and Understanding: lecture12.md
-      - Generative Models: lecture13.md
-      - Reinforcement Learning: lecture14.md
-      - Transformer: Transformer.md
-      - Assignment 3: assignment3.md
+  - CS231n: 
+    - Overview: CS231n.md
+    - Introduction: lecture1.md
+    - Image Classification with Linear Classifiers: lecture2.md
+    - Loss Functions and Optimization: lecture3.md
+    - Backpropagation and Neural Networks: lecture4.md
+    - Assignment 1: assignment1.md
+    - Convolutional Neural Networks: lecture5.md
+    - Training Neural Networks, Part 1: lecture6.md
+    - Training Neural Networks, Part 2: lecture7.md
+    - Deep Learning Software: lecture8.md
+    - CNN Architecture: lecture9.md
+    - Assignment 2: assignment2.md
+    - Recurrent Neural Networks: lecture10.md
+    - Detection and Segmentation: lecture11.md
+    - Visualizing and Understanding: lecture12.md
+    - Generative Models: lecture13.md
+    - Reinforcement Learning: lecture14.md
+    - Transformer: Transformer.md
+    - Assignment 3: assignment3.md
+  - Papers:
+    - "3D Gaussian Splatting": papers/3DGS.md 
+  - Games101:
+    - Overview: Games101/games101.md
+    - Review of Linear Algebra: Games101/lecture2.md
+    - Transformation: Games101/lecture3.md
 theme:
   logo: img/dragon.png
   favicon: img/dragon.png
