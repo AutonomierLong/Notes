@@ -349,3 +349,53 @@ What's next?
 
 + Do orthographic projection($M_2$) to finish.
 + $M_{persp}$ = $M_2 \cdot M_1$
+
+!!!question
+    对于一个点$(x, y, z)$, 经过透视投影后, 变换后的坐标为$(nx/z, ny/z, z, 1)$, 那么变换后的z坐标是什么? 相比于原来的z坐标有什么变化?
+
+    $$
+    \begin{pmatrix}
+    n & 0 & 0 & 0 \\
+    0 & n & 0 & 0 \\
+    0 & 0 & n+f & -nf \\
+    0 & 0 & 1 & 0 \\
+    \end{pmatrix}
+    \begin{pmatrix}
+    x \\
+    y \\
+    z \\
+    1 \\
+    \end{pmatrix}
+    =
+    \begin{pmatrix}
+    nx \\
+    ny \\
+    (n+f)z - nf \\
+    z \\
+    \end{pmatrix}
+    $$
+
+    我们只需要比较$(n+f)z - nf$与$z^2$的关系即可, 移项并分解因式可得:
+
+    $$
+    (n+f)z - nf > z^2
+    $$
+    但是因为$0>n>z>f$, 所以变换后的z坐标绝对值变小, 数值变大.
+
+Now, what's near plane's l, r, b, t then?
+
+Sometimes people prefer: vertical **field-of-view (fovY)** and aspect ratio(assume symmetry i. e. I = -r, b = -t)
+
+![linear](../images/games101_2/1%20(1).png){: width="500px" .center}
+
+![linear](../images/games101_2/1%20(2).png){: width="500px" .center}
+
+#### MVP
+
++ Model transformation (placing objects)
++ View transformation (placing camera)
++ Projection transformation
+    + Orthographic projection (cuboid to "canonical" cube $[-1, 1]^3$)
+    - Perspective projection (frustum to "canonical" cube)
+
+
