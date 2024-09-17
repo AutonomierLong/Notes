@@ -28,6 +28,7 @@ nav:
     - Review of Linear Algebra: Games101/lecture2.md
     - Transformation: Games101/lecture3.md
     - Rasterization: Games101/lecture5.md
+    - Shading: Games101/lecture7.md
     
 theme:
   logo: img/dragon.png

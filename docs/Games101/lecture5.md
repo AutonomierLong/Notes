@@ -118,3 +118,43 @@ Steps:
     我们将每个像素块进一步细分, 带来的drawback必然是计算复杂性提升, 如今的state of the art会有一些更加高效的在每个pixel中分区的方法, 什么临近的pixels还可以共用某些小分区.
     ![linear](../images/games101_2/1%20(20).png){: width="600px" .center}
 
+
+## Depth Control
+
+> 我们讨论了如何将一个三角形表征在二维的离散的像素点上, 但实际上一个真实的图形会被分割成很多不在同一平面上的三角形, 我们需要将这些三角形全部投影到二维像素平面上. 于是我们就需要确定三角形的遮挡关系.
+
+### Painter's Algorithm
+
+> Inspired by how painters paint, we just paint from back to front, overwrite in the framebuffer.
+
+![linear](../images/games101_3/1%20(1).png){: width="400px" .center}
+
+对于这样一张油画来讲, 我们先画远山, 再画草地(会遮挡一部分远山), 最后画树木(会遮挡一部分远山和草地).
+
+这样的算法需要我们想各个三角形按照深度排序, $\mathcal{O(NlogN)}$.
+
+!!!failure
+    ![linear](../images/games101_3/1%20(2).png){: width="400px" .center}
+    This algorithm cannot resolve the situation in the above piceture.
+
+### Z-Buffer
+
+> This is the algorithm that eventually won.
+
++ Store current minimum depth(z-value) for each pixel in the framebuffer.
++ Needs an additional buffer for depth values.
+    + frame buffer stores color values
+    + depth buffer stores depth values
+
+!!!warning
+    For simplicity, we suppose $z$ is always positive.
+    smaller z -> closer, larger z -> farther
+
+!!!example
+    ![linear](../images/games101_3/1%20(3).png){: width="600px" .center}
+    R代表无穷大, 表示未处理之前像素对应的depth为无穷大.
+
+Suppose that each triangle contains a limited number of pixels, the time complexity of z-buffering will be $\mathcal{O(N)}$.
+
+
+
