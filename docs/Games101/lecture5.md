@@ -156,5 +156,8 @@ Steps:
 
 Suppose that each triangle contains a limited number of pixels, the time complexity of z-buffering will be $\mathcal{O(N)}$.
 
+!!!tip
+    当然, 如果我们要使用MSAA等方法, 即在一个像素内设置多个采样点, 则需要对每个采样点维护一个depth和color的buffer.
+
 
 
