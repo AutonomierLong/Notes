@@ -1,0 +1,1681 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../lecture5/">
+      
+      
+        <link rel="next" href="../pipeline/">
+      
+      
+      <link rel="icon" href="../../img/dragon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.5.36">
+    
+    
+      
+        <title>Shading - Autonomier's Notes</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.06209087.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Merriweather:300,300i,400,400i,700,700i%7CFira+Code:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Merriweather";--md-code-font:"Fira Code"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../stylesheets/extra.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="green" data-md-color-accent="purple">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#lecture-7-8-9-shading" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="Autonomier&#39;s Notes" class="md-header__button md-logo" aria-label="Autonomier's Notes" data-md-component="logo">
+      
+  <img src="../../img/dragon.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Autonomier's Notes
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Shading
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="green" data-md-color-accent="purple"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 6H7c-3.31 0-6 2.69-6 6s2.69 6 6 6h10c3.31 0 6-2.69 6-6s-2.69-6-6-6m0 10H7c-2.21 0-4-1.79-4-4s1.79-4 4-4h10c2.21 0 4 1.79 4 4s-1.79 4-4 4M7 9c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="teal" data-md-color-accent="lime"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 7H7a5 5 0 0 0-5 5 5 5 0 0 0 5 5h10a5 5 0 0 0 5-5 5 5 0 0 0-5-5m0 8a3 3 0 0 1-3-3 3 3 0 0 1 3-3 3 3 0 0 1 3 3 3 3 0 0 1-3 3"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../.." class="md-tabs__link">
+        
+  
+    
+  
+  Home
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../CS231n/" class="md-tabs__link">
+          
+  
+  CS231n
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../papers/3DGS/" class="md-tabs__link">
+          
+  
+  Papers
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../games101/" class="md-tabs__link">
+          
+  
+  Games101
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+  
+
+<nav class="md-nav md-nav--primary md-nav--lifted md-nav--integrated" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Autonomier&#39;s Notes" class="md-nav__button md-logo" aria-label="Autonomier's Notes" data-md-component="logo">
+      
+  <img src="../../img/dragon.png" alt="logo">
+
+    </a>
+    Autonomier's Notes
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Home
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    CS231n
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            CS231n
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../CS231n/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Overview
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../lecture1/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Introduction
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../lecture2/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Image Classification with Linear Classifiers
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../lecture3/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Loss Functions and Optimization
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../lecture4/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Backpropagation and Neural Networks
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../assignment1/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Assignment 1
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../lecture5/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Convolutional Neural Networks
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../lecture6/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Training Neural Networks, Part 1
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../lecture7/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Training Neural Networks, Part 2
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../lecture8/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Deep Learning Software
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../lecture9/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    CNN Architecture
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../assignment2/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Assignment 2
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../lecture10/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Recurrent Neural Networks
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../lecture11/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Detection and Segmentation
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../lecture12/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Visualizing and Understanding
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../lecture13/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Generative Models
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../lecture14/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Reinforcement Learning
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Transformer/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Transformer
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../assignment3/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Assignment 3
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Papers
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            Papers
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../papers/3DGS/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    3D Gaussian Splatting
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+      
+        
+        
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="">
+            
+  
+  <span class="md-ellipsis">
+    Games101
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            Games101
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../games101/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Overview
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../lecture2/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Review of Linear Algebra
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../lecture3/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Transformation
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../lecture5/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Rasterization
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Shading
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    Shading
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#definition" class="md-nav__link">
+    <span class="md-ellipsis">
+      Definition
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#a-simple-shading-model-blinn-phong-reflective-model" class="md-nav__link">
+    <span class="md-ellipsis">
+      A simple Shading Model: Blinn-Phong Reflective Model
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="A simple Shading Model: Blinn-Phong Reflective Model">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#perceptual-observations" class="md-nav__link">
+    <span class="md-ellipsis">
+      Perceptual Observations
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#model-basics" class="md-nav__link">
+    <span class="md-ellipsis">
+      Model Basics
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Model Basics">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#diffuse-reflection" class="md-nav__link">
+    <span class="md-ellipsis">
+      Diffuse Reflection
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Diffuse Reflection">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#lamberts-law" class="md-nav__link">
+    <span class="md-ellipsis">
+      Lambert's Law
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#light-falloff" class="md-nav__link">
+    <span class="md-ellipsis">
+      Light Falloff
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#specular-reflection" class="md-nav__link">
+    <span class="md-ellipsis">
+      Specular Reflection
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ambient-term" class="md-nav__link">
+    <span class="md-ellipsis">
+      Ambient Term
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#shading-frequencies" class="md-nav__link">
+    <span class="md-ellipsis">
+      Shading Frequencies
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Shading Frequencies">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#flat-shading" class="md-nav__link">
+    <span class="md-ellipsis">
+      Flat Shading
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#gouraud-shading" class="md-nav__link">
+    <span class="md-ellipsis">
+      Gouraud Shading
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#phong-shading" class="md-nav__link">
+    <span class="md-ellipsis">
+      Phong Shading
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#comparison" class="md-nav__link">
+    <span class="md-ellipsis">
+      Comparison
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#per-vertex-normal-vectors" class="md-nav__link">
+    <span class="md-ellipsis">
+      Per-Vertex Normal Vectors
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#per-pixel-normal-vectors" class="md-nav__link">
+    <span class="md-ellipsis">
+      Per-Pixel Normal Vectors
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#interpolation-across-triangles-barycentric-coordinates" class="md-nav__link">
+    <span class="md-ellipsis">
+      Interpolation Across Triangles: Barycentric Coordinates
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Interpolation Across Triangles: Barycentric Coordinates">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#barycentric-coordinates" class="md-nav__link">
+    <span class="md-ellipsis">
+      Barycentric Coordinates
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#interpolation" class="md-nav__link">
+    <span class="md-ellipsis">
+      Interpolation
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#texture-mapping" class="md-nav__link">
+    <span class="md-ellipsis">
+      Texture Mapping
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Texture Mapping">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#simple-texture-mapping-diffuse-color" class="md-nav__link">
+    <span class="md-ellipsis">
+      Simple Texture Mapping: Diffuse Color
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#texture-too-small" class="md-nav__link">
+    <span class="md-ellipsis">
+      Texture too Small
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#texture-too-large" class="md-nav__link">
+    <span class="md-ellipsis">
+      Texture too Large
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Texture too Large">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#super-sampling" class="md-nav__link">
+    <span class="md-ellipsis">
+      Super Sampling
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mipmap" class="md-nav__link">
+    <span class="md-ellipsis">
+      Mipmap
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#anistotic-filteringripmaps-ewa-filtering" class="md-nav__link">
+    <span class="md-ellipsis">
+      Anistotic Filtering(Ripmaps, EWA Filtering)
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../pipeline/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Graphics Pipeline
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+<h1 id="lecture-7-8-9-shading">Lecture 7 &amp; 8 &amp; 9: Shading</h1>
+<p>What we've covered so far:</p>
+<p><img alt="linear" class="center" src="../../images/games101_3/1%20%284%29.png" width="600px" /></p>
+<h2 id="definition">Definition</h2>
+<p>The process of applying a material to an object.</p>
+<h2 id="a-simple-shading-model-blinn-phong-reflective-model">A simple Shading Model: Blinn-Phong Reflective Model</h2>
+<h3 id="perceptual-observations">Perceptual Observations</h3>
+<p><img alt="linear" class="center" src="../../images/games101_3/1%20%285%29.png" width="500px" /></p>
+<p>在我们观察一个场景的时候, 有些地方会产生高光的效果, 即光线基本呈现镜面反射的效果; 有些地方十分平滑, 即光线基本呈现漫反射的效果; 有些地方较暗, 不能被光源直接照射到, 是依靠别的地方的反射光照亮的.</p>
+<blockquote>
+<p>Shading 对应的是着色的过程, 不会考虑影子的问题.</p>
+</blockquote>
+<p><img alt="linear" class="center" src="../../images/games101_3/1%20%286%29.png" width="500px" /></p>
+<h3 id="model-basics">Model Basics</h3>
+<p><img alt="linear" class="center" src="../../images/games101_3/1%20%287%29.png" width="600px" /></p>
+<p>模型的输入有观测点相对于着色点的方向, 光线相对于着色点的方向, 着色点处平面的法线, 着色点处平面的一些其他信息(颜色, 亮度).</p>
+<h4 id="diffuse-reflection">Diffuse Reflection</h4>
+<blockquote>
+<p>Light is uniformly scattered in all directions, and surface color is the same for all viewing directions.</p>
+</blockquote>
+<p><img alt="linear" class="center" src="../../images/games101_3/1%20%288%29.png" width="300px" /></p>
+<h5 id="lamberts-law">Lambert's Law</h5>
+<p><img alt="linear" class="center" src="../../images/games101_3/1%20%289%29.png" width="600px" /></p>
+<p>surface 吸收的光照强度与入射光线的角度有关, 与观测点的角度无关(因为漫反射各个方向观测color都一样).</p>
+<h5 id="light-falloff">Light Falloff</h5>
+<p><img alt="linear" class="center" src="../../images/games101_3/1%20%2810%29.png" width="300px" /></p>
+<p>我们假设光沿着四面八方均匀传播, 由于能量守恒, 每一时刻的球壳上带有的能量都是一样的, 那么单位面积的光照强度就与球壳半径的平方(球壳面积)成反比.</p>
+<p>综合Lambert's Law和Light Falloff, 我们可以得到漫反射下的着色公式(Diffusion Term):</p>
+<div class="arithmatex">\[
+L_d = k_d(I/r^2)max(0,\hat{n}\cdot \hat{l})
+\]</div>
+<p><img alt="linear" class="center" src="../../images/games101_3/1%20%2811%29.png" width="600px" /></p>
+<blockquote>
+<p><span class="arithmatex">\(k_d\)</span>的存在是因为我们假设表面会吸收一些能量, 假如<span class="arithmatex">\(k_d\)</span>为1, 代表表面完全没有吸收能量, 为0则代表吸收了所有能量.</p>
+</blockquote>
+<div class="admonition note">
+<p class="admonition-title">The impact of <span class="arithmatex">\(k_d\)</span></p>
+<p><img alt="linear" class="center" src="../../images/games101_3/1%20%2812%29.png" width="600px" />
+可以看到, <span class="arithmatex">\(k_d\)</span>越大, 反射的光强越大, 即表面越亮.</p>
+</div>
+<h4 id="specular-reflection">Specular Reflection</h4>
+<blockquote>
+<p>Intensity depends on view direction.</p>
+</blockquote>
+<p>Bright near mirror reflection direction. 镜面反射的特点是存在着一个反射方向, 只有在该反射方向附近的观测方向才能看到高光.</p>
+<p><img alt="linear" class="center" src="../../images/games101_4/1%20%281%29.png" width="600px" /></p>
+<p>我们一般使用half vector来计算观测方向与入射方向的角平分线方向向量.</p>
+<blockquote>
+<p>计算half vector与法线的点积而不是计算反射光线和观测方向的点积, 这是因为前者计算上更加简便.</p>
+</blockquote>
+<p>得到Specular Term如下:</p>
+<div class="arithmatex">\[
+L_s = k_s(I/r^2)max(0,\hat{h}\cdot \hat{n})^p
+\]</div>
+<blockquote>
+<p>同理, 这里的<span class="arithmatex">\(k_s\)</span>也是表示吸收能量的比例.</p>
+</blockquote>
+<div class="admonition note">
+<p class="admonition-title">why is there a power <span class="arithmatex">\(p\)</span>?</p>
+<p><img alt="linear" class="center" src="../../images/games101_4/1%20%283%29.png" width="600px" />
+我们希望只有在观测方向与反射方向非常接近的时候, 光的强度才大, 而当观测方向与反射方向相差较大的时候, 光的强度就非常小. 但是如果不给<span class="arithmatex">\(cos\alpha\)</span>项加上指数的话, 可以看到就算是相差了45度, 观测到的亮度还是较大. 所以我们需要给<span class="arithmatex">\(cos\alpha\)</span>项加上一个指数, 使得当角度相差较大的时候, 光的强度迅速下降.</p>
+</div>
+<details class="tip">
+<summary>Tip</summary>
+<p><img alt="linear" class="center" src="../../images/games101_4/1%20%284%29.png" width="600px" />
+将Diffusion Term和Specular Term结合起来, 我们观察<span class="arithmatex">\(k_s\)</span>和<span class="arithmatex">\(p\)</span>变化对渲染效果的影响. 可以看到随着<span class="arithmatex">\(p\)</span>增大, 高亮更加集中.</p>
+</details>
+<h4 id="ambient-term">Ambient Term</h4>
+<blockquote>
+<p>对环境光的影响, Blinn-Phong Model考虑的非常简单, 即给所有地方都加上一个相同的常量光强, 不过这个光强要乘以一个系数<span class="arithmatex">\(k_a\)</span>.</p>
+</blockquote>
+<p><img alt="linear" class="center" src="../../images/games101_4/1%20%285%29.png" width="600px" /></p>
+<p>综合上述三个Term, 我们可以得到Blinn-Phong Reflective Model的公式:</p>
+<div class="arithmatex">\[
+L = L_a + L_d + L_s
+\]</div>
+<div class="arithmatex">\[
+L = k_d(I/r^2)max(0,\hat{n}\cdot \hat{l}) + k_s(I/r^2)max(0,\hat{h}\cdot \hat{n})^p + k_aL_a
+\]</div>
+<p>可以大致渲染出这样的结果:</p>
+<p><img alt="linear" class="center" src="../../images/games101_4/1%20%286%29.png" width="600px" /></p>
+<h3 id="shading-frequencies">Shading Frequencies</h3>
+<blockquote>
+<p>我们刚刚考虑的都是第一个点进行着色, 但是实际的图形是连续的, 我们有多种手段将其变为离散的点, 而后在=再着色.</p>
+</blockquote>
+<p><img alt="linear" class="center" src="../../images/games101_4/1%20%287%29.png" width="600px" /></p>
+<h4 id="flat-shading">Flat Shading</h4>
+<p><img alt="linear" class="center" src="../../images/games101_4/1%20%288%29.png" width="400px" /></p>
+<blockquote>
+<p>每个三角形的小切面当做一个点, 然后给整个切面shade相同的颜色.</p>
+</blockquote>
+<h4 id="gouraud-shading">Gouraud Shading</h4>
+<p><img alt="linear" class="center" src="../../images/games101_4/1%20%289%29.png" width="600px" /></p>
+<blockquote>
+<p>对每个顶点着色, 然后三角形上的颜色由各个顶点之间插值得到.</p>
+</blockquote>
+<h4 id="phong-shading">Phong Shading</h4>
+<p><img alt="linear" class="center" src="../../images/games101_4/1%20%2810%29.png" width="600px" /></p>
+<blockquote>
+<p>插值的到三角形区域上的所有法向量, 然后针对每个像素着色.</p>
+</blockquote>
+<h4 id="comparison">Comparison</h4>
+<p><img alt="linear" class="center" src="../../images/games101_4/1%20%2811%29.png" width="500px" /></p>
+<p>其实只要我们把这些三角形分割地足够细致, Flat 和 Phong Shading效果相差无几.</p>
+<h4 id="per-vertex-normal-vectors">Per-Vertex Normal Vectors</h4>
+<ul>
+<li>Best to get vertex normals from the underlying geometry.</li>
+</ul>
+<p><img alt="linear" class="center" src="../../images/games101_4/1%20%2812%29.png" width="200px" /></p>
+<p>比如我们知道需要渲染的是个球体, 那么每个顶点的法向量自然是圆心到顶点的连线方向. </p>
+<ul>
+<li>Otherwise have to infer vertex normals from triangle faces.</li>
+</ul>
+<p><img alt="linear" class="center" src="../../images/games101_4/1%20%2813%29.png" width="200px" /></p>
+<p>最简单的做法就是对该顶点所在的几个三角形面的法向量求平均, 再归一化:</p>
+<div class="arithmatex">\[
+N_v = \frac{\sum_i N_i}{||\sum_i N_i||}
+\]</div>
+<p>当然有可能有些三角形面比较大, 对顶点的法向量影响会相对较大, 所以也可以对几个法向量加权求平均.</p>
+<h4 id="per-pixel-normal-vectors">Per-Pixel Normal Vectors</h4>
+<p><img alt="linear" class="center" src="../../images/games101_4/1%20%2814%29.png" width="400px" /></p>
+<p>由几个顶点之间的normal vectors插值得到, 具体插值方法后文介绍.</p>
+<h3 id="interpolation-across-triangles-barycentric-coordinates">Interpolation Across Triangles: Barycentric Coordinates</h3>
+<blockquote>
+<p>考虑这样的情景: 已知三角形三个顶点的某种属性, 我们希望得到三角形内部一个点的该属性. 我们需要使用重心坐标进行插值.</p>
+</blockquote>
+<h4 id="barycentric-coordinates">Barycentric Coordinates</h4>
+<p><img alt="linear" class="center" src="../../images/games101_5/1%20%281%29.png" width="500px" /></p>
+<blockquote>
+<p>如果任意一点满足<span class="arithmatex">\(\alpha + \beta + \gamma = 1\)</span>, 那么这个点就在三角形所在的平面上, 同时, 如果<span class="arithmatex">\(\alpha, \beta, \gamma\)</span>都大于0, 那么这个点就在三角形内部.</p>
+</blockquote>
+<details class="tip">
+<summary>ways to calculate the barycentric coordinates</summary>
+<p><img alt="linear" class="center" src="../../images/games101_5/1%20%282%29.png" width="500px" />
+可以用顶点所对的面积比计算
+<img alt="linear" class="center" src="../../images/games101_5/1%20%283%29.png" width="500px" />
+可以直接代公式</p>
+</details>
+<blockquote>
+<p>特别地, 重心对应的重心坐标为<span class="arithmatex">\((\frac{1}{3}, \frac{1}{3}, \frac{1}{3})\)</span>.</p>
+</blockquote>
+<h4 id="interpolation">Interpolation</h4>
+<p><img alt="linear" class="center" src="../../images/games101_5/1%20%284%29.png" width="500px" /></p>
+<p>我们直接利用<span class="arithmatex">\(\alpha\)</span>, <span class="arithmatex">\(\beta\)</span>, <span class="arithmatex">\(\gamma\)</span>三个参数对三个顶点的某个属性加权平均即可.</p>
+<div class="admonition warning">
+<p class="admonition-title">barycentric coordinates are not invariant under projection</p>
+<p>重心坐标不具有投影不变性, 所以要注意计算重心坐标进行插值的时候, 一定要考虑清楚此时对应的三角形形态.
+比如, 我们想对一个三角形内部的点插值计算深度(depth), 那么此时就要求该点在三维空间三角形的重心坐标, 而不能求已经投影在二维平面之后的重心坐标.</p>
+</div>
+<h2 id="texture-mapping">Texture Mapping</h2>
+<p><img alt="linear" class="center" src="../../images/games101_4/1%20%2815%29.png" width="500px" /></p>
+<blockquote>
+<p>在Blinn-Phong模型中, 我们可以使用<span class="arithmatex">\(k_d\)</span>来表示表面的纹理特征, 比如上面这张图, 球和地板都有着自己的纹理. 
+需要注意的是, <span class="arithmatex">\(k_d\)</span>是三元向量, 表示三个颜色通道, shading公式后面所乘的可以理解为只是亮度.</p>
+</blockquote>
+<p>假设, 设计师预先为我们设计了一份纹理图样(一张2D图像), 并且标注了3D模型上的每个三角形对应的2D图样上的三角形.</p>
+<p><img alt="linear" class="center" src="../../images/games101_4/1%20%2816%29.png" width="500px" /></p>
+<blockquote>
+<p>Each triangle vertex is assigned a texture coordinate <span class="arithmatex">\((u, v)\)</span>, which is a 2D point in <span class="arithmatex">\([0,1] \times [0,1]\)</span>.</p>
+</blockquote>
+<p>那么我们就可以根据着色点在3D模型上的位置, 查询到其在2D图样上的位置, 然后根据这个位置来查询纹理特征.</p>
+<p>一张纹理图样可能在三维模型中反复出现, 所以我们希望纹理的设计是可以自然拼接的, 即左边与右边, 上边与下边.</p>
+<p><img alt="linear" class="center" src="../../images/games101_4/1%20%2817%29.png" width="400px" /></p>
+<p>下面, 我们介绍几种将纹理映射用于shading的算法</p>
+<h3 id="simple-texture-mapping-diffuse-color">Simple Texture Mapping: Diffuse Color</h3>
+<p><img alt="linear" class="center" src="../../images/games101_5/1%20%285%29.png" width="600px" /></p>
+<p>这样的做法直接将图像上的点映射到纹理上, 采样, 获得<span class="arithmatex">\(k_d\)</span>, 看上去很简单, 但是实际中会遇到很多问题.</p>
+<h3 id="texture-too-small">Texture too Small</h3>
+<blockquote>
+<p>想象一下, 如果我们希望渲染一面墙, 现在有一个墙纸的纹理, 但是墙的分辨率为<span class="arithmatex">\(1024 \times 1024\)</span>, 而纹理的分辨率小得多, 那么将这样的纹理添加到墙上, 就会使得墙面看起来很模糊.</p>
+</blockquote>
+<p><img alt="linear" class="center" src="../../images/games101_5/1%20%286%29.png" width="600px" /></p>
+<p>不过这个问题可以较好地通过插值解决, 最左侧的图像是不做处理, 直接采样得到的结果, 可以看出有很多锯齿, 中间和右边的图像分别使用双线性插值(考虑纹理上邻近的四个texel)和三次插值(考虑纹理上邻近的16个texel), 效果都不错, 但是三次插值的效果更好, 却处理复杂度更高.</p>
+<h3 id="texture-too-large">Texture too Large</h3>
+<p><img alt="linear" class="center" src="../../images/games101_5/1%20%287%29.png" width="600px" /></p>
+<blockquote>
+<p>为什么会出现上图的这种情况? 
+因为一个screen上的pixel, 对应着纹理上一大片texel, 我们直接采样的话会取得那么一大片的中心texel, 自然不能很好地代表一大片texel的信息. </p>
+</blockquote>
+<p><img alt="linear" class="center" src="../../images/games101_5/1%20%288%29.png" width="600px" /></p>
+<h4 id="super-sampling">Super Sampling</h4>
+<p>究其本质, 还是因为我们的采样频率太低, 导致一个采样点里面包含了太多信息. 所以我们可以将一个pixel细化成多个采样点, 最后pixel的颜色就是这些采样点的颜色的平均.</p>
+<p><img alt="linear" class="center" src="../../images/games101_5/1%20%289%29.png" width="600px" /></p>
+<p>这样进行super sampling之后, 我们就可以得到更精细的纹理效果, 但是代价就是计算量更大.</p>
+<h4 id="mipmap">Mipmap</h4>
+<blockquote>
+<p>我们在SuperSampling中做的其实就是去模拟一大片texel的平均值, 那么考虑有没有什么算法能够近似地在较快时间内查询到一片texel的平均值呢?
+Mipmap -- Allowing (fast, approx, square) range queries.</p>
+</blockquote>
+<p>我们先要对纹理图样做一些预处理, 方便后续的快速区域查询.</p>
+<p><img alt="linear" class="center" src="../../images/games101_5/1%20%2810%29.png" width="600px" /></p>
+<p><img alt="linear" class="center" src="../../images/games101_5/1%20%2811%29.png" width="400px" /></p>
+<p>我们将图像的分辨率不断降低, 直到变为一个pixel 而后将其堆叠成金字塔的形状.</p>
+<details class="note">
+<summary>overhead</summary>
+<p>我们需要储存不同分辨率下的图样, 所以会有一定的overhead, 但其实这个overhead不大, 是一个级数求和问题(假设原始图像的大小为<span class="arithmatex">\(S\)</span>):
+$$
+Total = \sum_{i=0}^{\inf} \frac{S}{2^i} = 2S
+$$</p>
+</details>
+<p>那么有了mipmap之后该如何获得一个pixel的图样信息呢?</p>
+<p><img alt="linear" class="center" src="../../images/games101_5/1%20%2812%29.png" width="600px" /></p>
+<p>我们找到该pixel邻近的几个pixel, 将他们全部变换到texel坐标, 计算彼此之间的距离, 取最大值, 将这个最大值作为边长, 构建一个正方形. 然后对这个正方形边长取<span class="arithmatex">\(log\)</span>, 就可以知道这样大小的正方形对应着mipmap中哪一层, 而后在该层上采样即可近似求得这一片texel的平均值.</p>
+<div class="admonition note">
+<p class="admonition-title">Trilinear</p>
+<p><img alt="linear" class="center" src="../../images/games101_5/1%20%2813%29.png" width="600px" />
+实际上由于计算出来的<span class="arithmatex">\(D\)</span>并非是一个整数, 所以我们也可以在texel上的相邻两层分别双线性插值, 然后在使用<span class="arithmatex">\(D\)</span>将两层的结果线性插值的到最终的结果.</p>
+</div>
+<div class="admonition fail">
+<p class="admonition-title">Shading Results</p>
+<p><img alt="linear" class="center" src="../../images/games101_5/1%20%2814%29.png" width="200px" />
+可以看到, 即使使用了三线性插值, 还是会出现一些瑕疵(overblur), 这是因为我们在mipmap中做了较多的近似, 导致结果不好. 
+比如, 我们假设了平均区域只能是正方形, 正方形长度取最大值等等.
+<img alt="linear" class="center" src="../../images/games101_5/1%20%2815%29.png" width="600px" />
+在实际的情况中, 一个pixel对应的texel区域多种多样, 可能是长方形, 斜着的图形等等.</p>
+</div>
+<h3 id="anistotic-filteringripmaps-ewa-filtering">Anistotic Filtering(Ripmaps, EWA Filtering)</h3>
+<blockquote>
+<p>很自然的一个提升mipmap的想法就是将长方形区域也考虑进去, 这样就有了Ripmaps.</p>
+</blockquote>
+<p><img alt="linear" class="center" src="../../images/games101_5/1%20%2816%29.png" width="600px" /></p>
+<p>但是Ripmap的存储量要大于mipmap, 可以看到最后大约是原始图像存储量的四倍.</p>
+<p>EWA filtering 是利用一系列大小不等的椭圆取近似图形, 可以解决不规则区域的问题, 精度更高, 但是显然计算复杂度和存储空间的需求更大.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+  <script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var labels=set.querySelector(".tabbed-labels");for(var tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
+
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      &copy; 2024 <a href="https://github.com/AutonomierLong"  target="_blank" rel="noopener">Autonomier Long</a>
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+        <div class="md-social">
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://github.com/AutonomierLong" target="_blank" rel="noopener" title="github.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 512"><!--! Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M186.1 328.7c0 20.9-10.9 55.1-36.7 55.1s-36.7-34.2-36.7-55.1 10.9-55.1 36.7-55.1 36.7 34.2 36.7 55.1M480 278.2c0 31.9-3.2 65.7-17.5 95-37.9 76.6-142.1 74.8-216.7 74.8-75.8 0-186.2 2.7-225.6-74.8-14.6-29-20.2-63.1-20.2-95 0-41.9 13.9-81.5 41.5-113.6-5.2-15.8-7.7-32.4-7.7-48.8 0-21.5 4.9-32.3 14.6-51.8 45.3 0 74.3 9 108.8 36 29-6.9 58.8-10 88.7-10 27 0 54.2 2.9 80.4 9.2 34-26.7 63-35.2 107.8-35.2 9.8 19.5 14.6 30.3 14.6 51.8 0 16.4-2.6 32.7-7.7 48.2 27.5 32.4 39 72.3 39 114.2m-64.3 50.5c0-43.9-26.7-82.6-73.5-82.6-18.9 0-37 3.4-56 6-14.9 2.3-29.8 3.2-45.1 3.2-15.2 0-30.1-.9-45.1-3.2-18.7-2.6-37-6-56-6-46.8 0-73.5 38.7-73.5 82.6 0 87.8 80.4 101.3 150.4 101.3h48.2c70.3 0 150.6-13.4 150.6-101.3m-82.6-55.1c-25.8 0-36.7 34.2-36.7 55.1s10.9 55.1 36.7 55.1 36.7-34.2 36.7-55.1-10.9-55.1-36.7-55.1"/></svg>
+    </a>
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://twitter.com/TheJamesWillett" target="_blank" rel="noopener" title="twitter.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M459.37 151.716c.325 4.548.325 9.097.325 13.645 0 138.72-105.583 298.558-298.558 298.558-59.452 0-114.68-17.219-161.137-47.106 8.447.974 16.568 1.299 25.34 1.299 49.055 0 94.213-16.568 130.274-44.832-46.132-.975-84.792-31.188-98.112-72.772 6.498.974 12.995 1.624 19.818 1.624 9.421 0 18.843-1.3 27.614-3.573-48.081-9.747-84.143-51.98-84.143-102.985v-1.299c13.969 7.797 30.214 12.67 47.431 13.319-28.264-18.843-46.781-51.005-46.781-87.391 0-19.492 5.197-37.36 14.294-52.954 51.655 63.675 129.3 105.258 216.365 109.807-1.624-7.797-2.599-15.918-2.599-24.04 0-57.828 46.782-104.934 104.934-104.934 30.213 0 57.502 12.67 76.67 33.137 23.715-4.548 46.456-13.32 66.599-25.34-7.798 24.366-24.366 44.833-46.132 57.827 21.117-2.273 41.584-8.122 60.426-16.243-14.292 20.791-32.161 39.308-52.628 54.253"/></svg>
+    </a>
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://www.linkedin.com/in/willettjames/" target="_blank" rel="noopener" title="www.linkedin.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M416 32H31.9C14.3 32 0 46.5 0 64.3v383.4C0 465.5 14.3 480 31.9 480H416c17.6 0 32-14.5 32-32.3V64.3c0-17.8-14.4-32.3-32-32.3M135.4 416H69V202.2h66.5V416zm-33.2-243c-21.3 0-38.5-17.3-38.5-38.5S80.9 96 102.2 96c21.2 0 38.5 17.3 38.5 38.5 0 21.3-17.2 38.5-38.5 38.5m282.1 243h-66.4V312c0-24.8-.5-56.7-34.5-56.7-34.6 0-39.9 27-39.9 54.9V416h-66.4V202.2h63.7v29.2h.9c8.9-16.8 30.6-34.5 62.9-34.5 67.2 0 79.7 44.3 79.7 101.9z"/></svg>
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.tabs", "navigation.sections", "toc.integrate", "navigation.top", "search.suggest", "search.highlight", "content.tabs.link", "content.code.annotation", "content.code.copy"], "search": "../../assets/javascripts/workers/search.6ce7567c.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.56dfad97.min.js"></script>
+      
+        <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+      
+    
+  </body>
+</html>
